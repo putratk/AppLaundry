@@ -98,6 +98,18 @@
         android:checked="false"
         android:text="Pewangi" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu Pengerjaan" />
+
+    <Spinner
+        android:id="@+id/spinnerWaktu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/waktu" />
+
     <Button
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"

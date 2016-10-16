@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHasil;
     RadioButton rbCB, rbCK, rbCS;
     CheckBox cbGB, cbCP, cbP;
+    Spinner spWaktu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         cbGB = (CheckBox) findViewById(R.id.checkBoxGB);
         cbCP = (CheckBox) findViewById(R.id.checkBoxCP);
         cbP = (CheckBox) findViewById(R.id.checkBoxP);
+        spWaktu = (Spinner) findViewById(R.id.spinnerWaktu);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +71,12 @@ public class MainActivity extends AppCompatActivity {
         if (tambahan.length() == startlen) tambahan = "Anda tidak memilih fasilitas tambahan";
 
         if (isValid()) {
-            tvHasil.setText("Nama : " + nama +
-                    "\nAlamat : " + alamat +
-                    "\nNomor Telepon : " + nomor +
-                    "\nJenis Laundry : " + ket +
-                    "\nFasilitas Tambahan : " + tambahan);
+            tvHasil.setText("Nama \t\t\t\t\t\t\t: " + nama +
+                    "\nAlamat \t\t\t\t\t\t: " + alamat +
+                    "\nNomor Telepon \t\t\t: " + nomor +
+                    "\nJenis Laundry \t\t\t: " + ket +
+                    "\nFasilitas Tambahan \t: " + tambahan +
+                    "\nWaktu Pengerjaan \t\t: " + spWaktu.getSelectedItem().toString());
         }
     }
 
