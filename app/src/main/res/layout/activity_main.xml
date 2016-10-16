@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,6 +38,39 @@
         android:layout_height="wrap_content"
         android:hint="Nomor Telepon" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jenis Laundry" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupJenis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonCB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Cuci Basah" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Cuci Kering" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Cuci Setrika" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"
@@ -48,3 +84,4 @@
         android:layout_height="wrap_content"
         tools:text="New Text" />
 </LinearLayout>
+</ScrollView>

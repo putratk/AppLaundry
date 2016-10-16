@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama, etAlamat, etNomor;
     Button btOk;
     TextView tvHasil;
+    RadioButton rbCB, rbCK, rbCS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         etNomor = (EditText) findViewById(R.id.editTextNomor);
         btOk = (Button) findViewById(R.id.buttonOk);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        rbCB = (RadioButton) findViewById(R.id.radioButtonCB);
+        rbCK = (RadioButton) findViewById(R.id.radioButtonCK);
+        rbCS = (RadioButton) findViewById(R.id.radioButtonCS);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,10 +44,22 @@ public class MainActivity extends AppCompatActivity {
         String alamat = etAlamat.getText().toString();
         String nomor = etNomor.getText().toString();
 
+        String ket = "";
+        if (rbCB.isChecked()) {
+            ket = rbCB.getText().toString();
+        } else if (rbCK.isChecked()) {
+            ket = rbCK.getText().toString();
+        } else if (rbCS.isChecked()) {
+            ket = rbCS.getText().toString();
+        } else {
+            ket = "Anda belum memilih Jenis Laundry";
+        }
+
         if (isValid()) {
             tvHasil.setText("Nama : " + nama +
                     "\nAlamat : " + alamat +
-                    "\nNomor Telepon : " + nomor);
+                    "\nNomor Telepon : " + nomor +
+                    "\nJenis Laundry : " + ket);
         }
     }
 
