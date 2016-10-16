@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button btOk;
     TextView tvHasil;
     RadioButton rbCB, rbCK, rbCS;
+    CheckBox cbGB, cbCP, cbP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         rbCB = (RadioButton) findViewById(R.id.radioButtonCB);
         rbCK = (RadioButton) findViewById(R.id.radioButtonCK);
         rbCS = (RadioButton) findViewById(R.id.radioButtonCS);
+        cbGB = (CheckBox) findViewById(R.id.checkBoxGB);
+        cbCP = (CheckBox) findViewById(R.id.checkBoxCP);
+        cbP = (CheckBox) findViewById(R.id.checkBoxP);
 
         findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +60,19 @@ public class MainActivity extends AppCompatActivity {
             ket = "Anda belum memilih Jenis Laundry";
         }
 
+        String tambahan = "";
+        int startlen = tambahan.length();
+        if (cbGB.isChecked()) tambahan += cbGB.getText().toString() + ", ";
+        if (cbCP.isChecked()) tambahan += cbCP.getText().toString() + ", ";
+        if (cbP.isChecked()) tambahan += cbP.getText().toString() + ". ";
+        if (tambahan.length() == startlen) tambahan = "Anda tidak memilih fasilitas tambahan";
+
         if (isValid()) {
             tvHasil.setText("Nama : " + nama +
                     "\nAlamat : " + alamat +
                     "\nNomor Telepon : " + nomor +
-                    "\nJenis Laundry : " + ket);
+                    "\nJenis Laundry : " + ket +
+                    "\nFasilitas Tambahan : " + tambahan);
         }
     }
 
